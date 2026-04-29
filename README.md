@@ -1,16 +1,54 @@
-# React + Vite
+# ZapInteligente Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém o front-end do site ZapInteligente, construído com React e Vite. O projeto foi estruturado para oferecer uma experiência rápida, responsiva e fácil de manter.
 
-Currently, two official plugins are available:
+## 🚀 Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ZapInteligente é um site para automação de processos e interação inteligente via WhatsApp. Ele oferece uma interface moderna para clientes, com foco em conversão, agilidade no atendimento e integração com ferramentas de automação.
 
-## React Compiler
+## 📁 Estrutura do Projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/`
+  - `App.jsx` — componente principal da aplicação.
+  - `main.jsx` — ponto de entrada do React.
+  - `index.css` e `App.css` — estilos globais e específicos.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `public/` — ativos estáticos e arquivos públicos.
+- `package.json` — dependências, scripts e configurações do projeto.
+- `vite.config.js` — configuração do Vite.
+
+## ⚙️ Scripts disponíveis
+
+Execute os comandos abaixo no terminal a partir da raiz do projeto:
+
+- `npm install` — instala as dependências.
+- `npm run dev` — inicia o servidor de desenvolvimento.
+- `npm run build` — gera a versão de produção.
+- `npm run preview` — visualiza o build gerado.
+- `npm run lint` — verifica o código com ESLint.
+
+## 💡 Tecnologias usadas
+
+- React 19
+- Vite
+- ESLint
+
+## ✅ Recursos esperados para o ZapInteligente
+
+- Página inicial personalizada para apresentação do produto.
+- Seções de benefícios e diferenciais do ZapInteligente.
+- Chamadas para ação (CTA) para conversão de visitantes.
+- Layout responsivo para desktop e mobile.
+- Integração visual com WhatsApp e automações.
+
+## 📌 Como contribuir
+
+1. Crie uma branch a partir de `main` ou `master`.
+2. Faça mudanças visuais ou funcionais no `src/`.
+3. Teste localmente com `npm run dev`.
+4. Abra um pull request descrevendo as alterações.
+
+## 📞 Contato
+
+Para dúvidas ou melhorias, use o repositório como referência e ajuste o conteúdo do site conforme a identidade do ZapInteligente.
