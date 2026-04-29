@@ -282,10 +282,9 @@
   border-radius: 50%;
 }
 
-.hero-art {
-  position: relative;
-  z-index: 1;
-  min-height: 330px;
+.hero-art img {
+  width: 100%;
+  height: auto; 
 }
 
 .hero-bot {
@@ -670,6 +669,7 @@ details {
 
 .icon-fill {
   fill: #128cac;
+  
 }
 
 .icon-fill.pale {
@@ -1039,40 +1039,62 @@ details p {
   gap: 8px;
 }
 
-details {
+.faq-item {
   box-shadow: 0 8px 17px rgba(2, 55, 75, 0.11);
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-summary {
-  position: relative;
-  min-height: 36px;
-  padding: 10px 48px 10px 39px;
+.faq-item.open {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(2, 55, 75, 0.14);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 16px 48px 16px 39px;
   cursor: pointer;
   color: var(--ink);
   font-size: 15px;
   font-weight: 900;
-  list-style: none;
+  border: 0;
+  background: transparent;
+  position: relative;
 }
 
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
+.faq-question::after {
   position: absolute;
-  top: 9px;
+  top: 18px;
   right: 30px;
   color: #7eb8c5;
   content: "⌄";
   font-size: 20px;
+  transition: transform 0.3s ease;
 }
 
-details[open] summary::after {
+.faq-item.open .faq-question::after {
   transform: rotate(180deg);
 }
 
-details p {
-  padding: 0 39px 13px;
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.36s ease, opacity 0.28s ease, padding 0.28s ease;
+  padding: 0 39px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 260px;
+  opacity: 1;
+  padding: 0 39px 18px;
+}
+
+.faq-answer p {
+  margin: 0;
 }
 
 .faq-art {
@@ -1193,6 +1215,7 @@ details p {
   border-radius: 50%;
 }
 
+
 @media (max-width: 1050px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -1214,6 +1237,7 @@ details p {
   .hero-art {
     min-height: 360px;
   }
+
 
   .hero-bot {
     right: calc(50% - 150px);
@@ -1273,11 +1297,6 @@ details p {
     min-width: 0;
   }
 
-  .hero-art {
-    transform: scale(0.86);
-    transform-origin: top center;
-    min-height: 100px;
-  }
 
   .section {
     width: min(460px, calc(100% - 28px));
@@ -1330,5 +1349,17 @@ details p {
   .final-cta ul {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (max-width: 460px) {
+
+  .hero-art{
+    min-height: 100px;
+  }
+
+  .hero-art img {
+    display: none;
+
   }
 }
