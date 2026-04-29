@@ -1,8 +1,10 @@
 import './App.css' // importa o CSS do componente principal
 
+import { useState } from 'react' // importa o hook useState do React para gerenciamento de estado
+
 const benefits = [ // define a lista de benefícios mostrados no hero
-  ['Configuracao facil', 'gear'], // benefício: texto e classe de ícone
-  ['Sem cartao de credito', 'card'], // benefício: texto e classe de ícone
+  ['Configuração fácil', 'gear'], // benefício: texto e classe de ícone
+  ['Sem cartão de crédito', 'card'], // benefício: texto e classe de ícone
   ['Suporte especializado', 'support'], // benefício: texto e classe de ícone
 ]
 
@@ -14,12 +16,12 @@ const reasons = [ // define as razões para escolher o serviço
   },
   { // razão 2
     title: 'Aumento de Vendas', // título da razão 2
-    text: 'Mais leads e conversoes para o seu negocio.', // texto explicativo da razão 2
+    text: 'Mais leads e conversões para o seu negócio.', // texto explicativo da razão 2
     icon: 'growth', // ícone usado para a razão 2
   },
   { // razão 3
     title: 'Economia de Tempo', // título da razão 3
-    text: 'Automacao para focar no que realmente importa.', // texto explicativo da razão 3
+    text: 'Automação para focar no que realmente importa.', // texto explicativo da razão 3
     icon: 'time', // ícone usado para a razão 3
   },
 ]
@@ -43,17 +45,24 @@ const steps = [ // define as etapas de funcionamento da automação
 ]
 
 const testimonials = [ // define os depoimentos dos clientes
-  ['Mariana S.', 'Otimo servico! Aumentei minhas vendas rapidamente!', 'woman'], // depoimento do cliente 1
-  ['Ricardo L.', 'A automacao facilitou muito meu atendimento!', 'man'], // depoimento do cliente 2
+  ['Mariana S.', 'Ótimo serviço! Aumentei minhas vendas rapidamente!', 'woman'], // depoimento do cliente 1
+  ['Ricardo L.', 'A automação facilitou muito meu atendimento!', 'man'], // depoimento do cliente 2
   ['Fernanda T.', 'Excelente! Recomendo a todos!', 'woman'], // depoimento do cliente 3
 ]
 
 const faqs = [ // define as perguntas frequentes
-  'Ainda tem duvidas?', // pergunta 1
-  'Como funciona a automacao de WhatsApp?', // pergunta 2
+  'Ainda tem dúvidas?', // pergunta 1
+  'Como funciona a automação de WhatsApp?', // pergunta 2
   'Posso testar antes de contratar?', // pergunta 3
-  'A plataforma e segura?', // pergunta 4
-  'Preciso de conhecimento tecnico para usar?', // pergunta 5
+  'A plataforma é segura?', // pergunta 4
+  'Preciso de conhecimento técnico para usar?', // pergunta 5
+]
+const faqs_respostas = [ // define as respostas para as perguntas frequentes
+  'Nossa equipe ajuda voce a configurar tudo de forma simples e rapida.', // resposta para pergunta 1
+  'Nossa automação usa IA para criar chatbots inteligentes, funis de mensagens personalizados e relatorios detalhados, tudo integrado ao seu WhatsApp para otimizar seu atendimento e aumentar suas vendas.', // resposta para pergunta 2
+  'Sim! Oferecemos um teste gratuito de 7 dias para que voce possa experimentar todas as funcionalidades sem compromisso.', // resposta para pergunta 3
+  'Sim, nossa plataforma é segura e confiável. Utilizamos criptografia avançada e seguimos as melhores práticas de segurança para proteger seus dados e os dados dos seus clientes.', // resposta para pergunta 4
+  'Não, nossa plataforma é projetada para ser fácil de usar, mesmo para quem não tem conhecimento técnico. Além disso, oferecemos suporte especializado para ajudar voce em cada etapa do processo.' // resposta para pergunta 5
 ]
 
 function Logo() { // componente que renderiza a marca ZapInteligente
@@ -66,7 +75,7 @@ function Logo() { // componente que renderiza a marca ZapInteligente
         <strong>{/* nome principal da marca */}
           Zap<span>Inteligente</span>{/* parte do nome com destaque */}
         </strong>
-        <small>Automacao com IA para WhatsApp</small>{/* subtítulo da marca */}
+        <small>Automação com IA para WhatsApp</small>{/* subtítulo da marca */}
       </span>
     </a>
   )
@@ -105,7 +114,7 @@ function WhatsappIcon() { // componente SVG do ícone do WhatsApp
 function HeroBot() { // componente que renderiza a arte principal do herói
   return (
     <div className="hero-art" aria-hidden="true">{/* contêiner de arte do herói */}
-    
+  <img src="/robo.png" alt="robo" />
     
     </div>
   )
@@ -133,13 +142,7 @@ function SmallIcon({ type }) { // componente de ícone pequeno que varia por tip
   }
 
   return (
-    <svg viewBox="0 0 90 72" aria-hidden="true">{/* ícone padrão quando o tipo não corresponde */}
-      <rect className="icon-fill pale" x="20" y="18" width="50" height="38" rx="18" />{/* corpo do robô */}
-      <path className="icon-line" d="M22 39V26a23 23 0 0 1 46 0v13M17 38v13M73 38v13" />{/* detalhes do corpo */}
-      <circle className="icon-fill" cx="36" cy="39" r="4" />{/* olho esquerdo */}
-      <circle className="icon-fill" cx="54" cy="39" r="4" />{/* olho direito */}
-      <path className="icon-line" d="M37 50c5 4 11 4 16 0" />{/* sorriso do robô */}
-    </svg>
+      <img className="icon-fill icon-line" style={{ width: '55%' }} src="/atendimento.png" alt="" />
   )
 }
 
@@ -147,33 +150,30 @@ function StepArt({ variant }) { // componente de arte para as etapas
   return (
     <div className={`step-art ${variant}`} aria-hidden="true">{/* contêiner da arte da etapa */}
       {variant === 'bot' && ( // arte de bot para a etapa bot
-        <>{/* fragmento React para múltiplos elementos */}
-          <BotFace />{/* rosto do robô */}
-          <span className="gear-dot"></span>{/* ponto da engrenagem */}
-          <span className="bubble yellow"></span>{/* bolha amarela */}
+        <>
+        <img className="step-art" src="/robo.png" alt="" />  
         </>
       )}
       {variant === 'funnel' && ( // arte de funil para a etapa funnel
         <>{/* fragmento React para múltiplos elementos */}
-          <span className="bubble green left"></span>{/* bolha verde esquerda */}
-          <span className="bubble green right"></span>{/* bolha verde direita */}
-          <div className="funnel-shape">{/* formato de funil */}
-            <span></span>{/* detalhe interno */}
-          </div>
+       <img  className="step-art" src="/funil-de-venda.png" alt="funil de venda " />
         </>
       )}
       {variant === 'chart' && ( // arte de gráfico para a etapa chart
-        <div className="chart-window">{/* contêiner do gráfico */}
-          <span></span>{/* detalhe do gráfico */}
-          <i></i>{/* detalhe do gráfico */}
-          <b></b>{/* detalhe do gráfico */}
-        </div>
+        
+        <img className="step-art" src="/relatorio.png" alt="relatorio whatsapp" />  
+         
       )}
     </div>
   )
 }
 
 function App() { // componente principal que monta toda a página
+  const [number, setNumber] = useState("https://wa.me/5511960309423") // define o número de contato para WhatsApp;
+  const [robo, setRobo] = useState("../../dist/robo.png") // define a URL da imagem do robô para o herói
+  
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null)
+
   return (
     <main id="top" className="page">{/* contêiner principal de página */}
       <header className="site-header">{/* cabeçalho do site */}
@@ -185,7 +185,7 @@ function App() { // componente principal que monta toda a página
           <a href="#depoimentos">Depoimentos</a>{/* link para depoimentos */}
           <a href="#faq">FAQ</a>{/* link para perguntas frequentes */}
         </nav>
-        <a className="button button-primary header-button" href="#cta">{/* botão de chamada no cabeçalho */}
+        <a className="button button-primary header-button" href={number} target="_blank" rel="noopener noreferrer">{/* botão de chamada no cabeçalho */}
           Teste Gratis Agora{/* texto do botão */}
         </a>
       </header>
@@ -197,7 +197,7 @@ function App() { // componente principal que monta toda a página
           </h1>
           <p>Aumente suas vendas e otimize seu atendimento agora mesmo!</p>{/* mensagem de conversão */}
           <div className="hero-actions">{/* ações principais do hero */}
-            <a className="button button-primary" href="#cta">{/* botão principal do hero */}
+            <a className="button button-primary" href={number} target="_blank" rel="noopener noreferrer">{/* botão principal do hero */}
               <WhatsappIcon />{/* ícone do WhatsApp */}
               Teste Gratis Agora{/* texto do botão */}
             </a>
@@ -220,7 +220,7 @@ function App() { // componente principal que monta toda a página
 
       <div className="content-shell">{/* contêiner do conteúdo interno */}
         <section id="recursos" className="section">{/* seção de recursos */}
-          <SectionTitle>Por que escolher nosso servico?</SectionTitle>{/* título decorado */}
+          <SectionTitle>Por que escolher nosso serviço?</SectionTitle>{/* título decorado */}
           <div className="card-grid reason-grid">{/* grade das razões */}
             {reasons.map((reason) => ( // percorre cada razão do array
               <article className="info-card" key={reason.title}>{/* cartão de razão */}
@@ -233,7 +233,7 @@ function App() { // componente principal que monta toda a página
         </section>
 
         <section id="como-funciona" className="section">{/* seção de explicação do funcionamento */}
-          <SectionTitle>Como Funciona a Automacao?</SectionTitle>{/* título decorado */}
+          <SectionTitle>Como Funciona a Automação?</SectionTitle>{/* título decorado */}
           <div className="step-grid">{/* grade de etapas */}
             {steps.map((step, index) => ( // percorre cada etapa
               <article className="step-card" key={step.title}>{/* cartão de etapa */}
@@ -268,12 +268,24 @@ function App() { // componente principal que monta toda a página
           <SectionTitle>Perguntas Frequentes</SectionTitle>{/* título decorado */}
           <div className="faq-layout">{/* layout do FAQ */}
             <div className="faq-list">{/* lista de perguntas */}
-              {faqs.map((faq) => ( // percorre cada pergunta
-                <details key={faq}>{/* bloco expansível da pergunta */}
-                  <summary>{faq}</summary>{/* texto da pergunta */}
-                  <p>Nossa equipe ajuda voce a configurar tudo de forma simples e rapida.</p>{/* resposta padrão */}
-                </details>
-              ))}
+              {faqs.map((faq, index) => {
+                const isOpen = activeFaqIndex === index
+                return (
+                  <div className={`faq-item ${isOpen ? 'open' : ''}`} key={faq}>
+                    <button
+                      type="button"
+                      className="faq-question"
+                      aria-expanded={isOpen}
+                      onClick={() => setActiveFaqIndex(isOpen ? null : index)}
+                    >
+                      {faq}
+                    </button>
+                    <div className="faq-answer" aria-hidden={!isOpen}>
+                      <p>{faqs_respostas[index]}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
             <div className="faq-art" aria-hidden="true">{/* arte decorativa do FAQ */}
               <div className="big-whatsapp">{/* contêiner grande de WhatsApp */}
@@ -290,7 +302,7 @@ function App() { // componente principal que monta toda a página
               <strong>Ainda precisa de ajuda?</strong>{/* título da ajuda */}
               <p>Fale com nosso time especialista pelo WhatsApp.</p>{/* explicação adicional */}
             </div>
-            <a className="button button-outline" href="#cta">{/* botão de contato via WhatsApp */}
+            <a className="button button-outline" href={number} target="_blank" rel="noopener noreferrer">{/* botão de contato via WhatsApp */}
               <WhatsappIcon />{/* ícone do WhatsApp */}
               Falar no WhatsApp{/* texto do botão */}
             </a>
@@ -304,7 +316,7 @@ function App() { // componente principal que monta toda a página
           <p>Comece agora gratuitamente!</p>{/* texto de apoio */}
         </div>
         <div>{/* bloco de ação */}
-          <a className="button button-primary" href="https://wa.me/5500000000000">{/* botão para WhatsApp */}
+          <a className="button button-primary" href={number} target="_blank" rel="noopener noreferrer">{/* botão para WhatsApp */}
             <WhatsappIcon />{/* ícone do WhatsApp */}
             Testar Gratis Agora{/* texto do botão */}
           </a>
