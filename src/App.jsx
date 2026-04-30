@@ -51,7 +51,7 @@ const steps = [
   {
     title: 'Relatorios Completos',
     text: 'Analises e insights detalhados para decisoes inteligentes.',
-    image: '/icon-crescimento.png',
+    image: '/relatorio.png',
     alt: 'Grafico representando relatorios de resultados',
     width: 512,
     height: 512,
