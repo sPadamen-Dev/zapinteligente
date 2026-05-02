@@ -25,7 +25,7 @@ const reasons = [
   },
   {
     title: 'Economia de Tempo',
-    text: 'Automacao para focar no que realmente importa.',
+    text: 'automação para focar no que realmente importa.',
     icon: '/icon-tempo.png',
     alt: 'Icone de economia de tempo',
   },
@@ -49,41 +49,41 @@ const steps = [
     height: 369,
   },
   {
-    title: 'Relatorios Completos',
+    title: 'Relatórios Completos',
     text: 'Analises e insights detalhados para decisoes inteligentes.',
     image: '/relatorio.png',
-    alt: 'Grafico representando relatorios de resultados',
+    alt: 'Grafico representando relatórios de resultados',
     width: 512,
     height: 512,
   },
 ]
 
 const testimonials = [
-  ['Mariana S.', 'Otimo servico! Aumentei minhas vendas rapidamente!', 'woman'],
-  ['Ricardo L.', 'A automacao facilitou muito meu atendimento!', 'man'],
+  ['Mariana S.', 'Ótimo serviço! Aumentei minhas vendas rapidamente!', 'woman'],
+  ['Ricardo L.', 'A automação facilitou muito meu atendimento!', 'man'],
   ['Fernanda T.', 'Excelente! Recomendo a todos!', 'woman'],
 ]
 
 const faqs = [
   {
-    question: 'Ainda tem duvidas?',
+    question: 'Ainda tem dúvida?',
     answer: 'Nossa equipe ajuda voce a configurar tudo de forma simples e rapida.',
   },
   {
-    question: 'Como funciona a automacao de WhatsApp?',
-    answer: 'A automacao usa IA para criar chatbots, funis de mensagens e relatorios integrados ao seu WhatsApp.',
+    question: 'Como funciona a automação de WhatsApp?',
+    answer: 'A automação usa IA para criar chatbots, funis de mensagens e relatórios integrados ao seu WhatsApp.',
   },
   {
     question: 'Posso testar antes de contratar?',
-    answer: 'Sim. Voce pode iniciar uma conversa, entender o melhor fluxo e validar a solucao antes de avancar.',
+    answer: 'Sim. Você pode iniciar uma conversa, entender o melhor fluxo e validar a solução antes de avançar.',
   },
   {
     question: 'A plataforma e segura?',
-    answer: 'Sim. Trabalhamos com boas praticas de configuracao, controle de acesso e protecao dos dados dos clientes.',
+    answer: 'Sim. Trabalhamos com boas praticas de cinfiguração, controle de acesso e proteção dos dados dos clientes.',
   },
   {
     question: 'Preciso de conhecimento tecnico para usar?',
-    answer: 'Nao. A plataforma e simples, e nosso time acompanha voce na configuracao dos primeiros fluxos.',
+    answer: 'Não. A plataforma e simples, e nosso time acompanha voce na configuração dos primeiros fluxos.',
   },
 ]
 
@@ -140,7 +140,7 @@ function App() {
             <BotLogo />
             <span>
               <strong>Zap<span>Inteligente</span></strong>
-              <small>Automacao com IA para WhatsApp</small>
+              <small>automação com IA para WhatsApp</small>
             </span>
           </a>
           <nav aria-label="Navegacao principal">
@@ -197,7 +197,7 @@ function App() {
             </section>
 
             <section id="como-funciona" className="section" aria-labelledby="como-funciona-title">
-              <SectionTitle id="como-funciona-title">Como Funciona a Automacao?</SectionTitle>
+              <SectionTitle id="como-funciona-title">Como Funciona a automação?</SectionTitle>
               <div className="step-grid">
                 {steps.map((step, index) => (
                   <article className="step-card" key={step.title}>
