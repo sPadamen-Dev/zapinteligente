@@ -25,7 +25,7 @@ const reasons = [
   },
   {
     title: 'Economia de Tempo',
-    text: 'Automacao para focar no que realmente importa.',
+    text: 'automação para focar no que realmente importa.',
     icon: '/icon-tempo.png',
     alt: 'Icone de economia de tempo',
   },
@@ -140,7 +140,7 @@ function App() {
             <BotLogo />
             <span>
               <strong>Zap<span>Inteligente</span></strong>
-              <small>Automacao com IA para WhatsApp</small>
+              <small>automação com IA para WhatsApp</small>
             </span>
           </a>
           <nav aria-label="Navegacao principal">
@@ -197,7 +197,7 @@ function App() {
             </section>
 
             <section id="como-funciona" className="section" aria-labelledby="como-funciona-title">
-              <SectionTitle id="como-funciona-title">Como Funciona a Automacao?</SectionTitle>
+              <SectionTitle id="como-funciona-title">Como Funciona a automação?</SectionTitle>
               <div className="step-grid">
                 {steps.map((step, index) => (
                   <article className="step-card" key={step.title}>
